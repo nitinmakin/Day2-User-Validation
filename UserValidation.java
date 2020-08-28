@@ -1,51 +1,34 @@
 package com.bridgelabz.uservalidation.service;
-import java.util.Scanner;
 import java.util.regex.*;
 
 public class UserValidation
 {
-    private Pattern pattern;
-    private Matcher matcher;
-    private  String firstName = "^[A-Z]([a-z]{2,15})*";
+    private  String firstName = "^[A-Z]{1}([a-z]{2,15})*";
     private String lastName = firstName;
     private String eMail = "^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
-    private String phoneNo ="^[91]+[ ]{0,1}+[1-9][0-9]{9}$";
-    private String password = "^[A-Za-z0-9]{8,20}";
-    public UserValidation()
-    {
-        pattern = pattern.compile(firstName);
-        pattern = pattern.compile(lastName);
-        pattern =pattern.compile(eMail);
-        pattern = pattern.compile(phoneNo);
-        pattern = pattern.compile(password);
-    }
-
+    private String phoneNo = "^[91]+[ ]{0,1}+[1-9][0-9]{9}$";
+    private String password = "(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[!%&$#@%!]{1}){8,}";
 
     public  boolean validateFirstName(String firstName)
     {
-        matcher = pattern.matcher(firstName);
-        return matcher.matches();
+        return Pattern.matches(this.firstName,firstName);
     }
-    public  boolean validateLastName(String LastName)
+    public  boolean validateLastName(String lastName)
     {
-        matcher = pattern.matcher(lastName);
-        return matcher.matches();
+        return Pattern.matches(this.lastName,lastName);
     }
     public boolean validateEMail(String eMail)
     {
-        matcher = pattern.matcher(eMail);
-        return matcher.matches();
+        return Pattern.matches(this.eMail,eMail);
     }
     public boolean validatePhoneNo(String phoneNo)
     {
-        matcher = pattern.matcher(phoneNo);
-        return matcher.matches();
+        return Pattern.matches(this.phoneNo,phoneNo);
     }
-    public boolean validatePasswordAtleast1NumaricNo(String password)
-	{
-		matcher = pattern.matcher(password);
-		return matcher.matches();
-	}
+    public boolean validatePassword(String password)
+    {
+        return Pattern.matches(this.password,password);
+    }
 }
 
 
