@@ -41,18 +41,11 @@ public class UserValidation
         matcher = pattern.matcher(phoneNo);
         return matcher.matches();
     }
-    public boolean validatePasswordMin8Char(String password)
+    public boolean validatePasswordAtleast1UpperCase(String password)
 	{
 		matcher = pattern.matcher(password);
 		return matcher.matches();
 	}
-
-
-//        public static void main(String[] args)
-//        {
-//            UserValidation uservalidation = new UserValidation();
-//            System.out.println(uservalidation.validateEMail("nitinmakin124@gmail.com"));
-//        }
 }
 
 
