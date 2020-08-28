@@ -10,14 +10,16 @@ public class UserValidation
     private String lastName = firstName;
     private String eMail = "^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
     private String phoneNo ="^[91]+[ ]{0,1}+[1-9][0-9]{9}$";
-
+    private String password = "^[A-Za-z]{8,20}";
     public UserValidation()
     {
         pattern = pattern.compile(firstName);
         pattern = pattern.compile(lastName);
         pattern =pattern.compile(eMail);
         pattern = pattern.compile(phoneNo);
+        pattern = pattern.compile(password);
     }
+
 
     public  boolean validateFirstName(String firstName)
     {
@@ -39,6 +41,11 @@ public class UserValidation
         matcher = pattern.matcher(phoneNo);
         return matcher.matches();
     }
+    public boolean validatePasswordMin8Char(String password)
+	{
+		matcher = pattern.matcher(password);
+		return matcher.matches();
+	}
 
 
 //        public static void main(String[] args)
