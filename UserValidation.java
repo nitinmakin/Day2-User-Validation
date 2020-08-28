@@ -7,7 +7,7 @@ public class UserValidation
         private Pattern pattern;
         private Matcher matcher;
         private  String firstName = "^[A-Z]([a-z]{2,15})*";
-     //   private String lastName = firstName;
+        private String lastName = firstName;
        // private String eMail = " ";
         Scanner sn=new Scanner(System.in);
 
@@ -24,7 +24,7 @@ public class UserValidation
         }
         public  boolean validateLastName(String LastName)
         {
-            matcher=pattern.matcher(firstName);
+            matcher=pattern.matcher(lastName);
             return matcher.matches();
         }
 //
