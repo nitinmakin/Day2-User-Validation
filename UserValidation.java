@@ -10,7 +10,7 @@ public class UserValidation
     private String lastName = firstName;
     private String eMail = "^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]co(m|.in)$";
     private String phoneNo ="^[91]+[ ]{0,1}+[1-9][0-9]{9}$";
-    private String password = "^[A-Za-z]{8,20}";
+    private String password = "^[A-Za-z0-9]{8,20}";
     public UserValidation()
     {
         pattern = pattern.compile(firstName);
@@ -41,7 +41,7 @@ public class UserValidation
         matcher = pattern.matcher(phoneNo);
         return matcher.matches();
     }
-    public boolean validatePasswordAtleast1UpperCase(String password)
+    public boolean validatePasswordAtleast1NumaricNo(String password)
 	{
 		matcher = pattern.matcher(password);
 		return matcher.matches();
